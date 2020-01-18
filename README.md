@@ -34,10 +34,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* Install NodeJS
-* Install Truffle
+* Install [NodeJS](https://nodejs.org/en/)
+* Install [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * Install GanacheCLI
-* Install Metamask on web browser (Chrome recommended)
+* Install [Metamask](www.metamask.io) on web browser (Chrome recommended)
 * Clone project
 
 ```
