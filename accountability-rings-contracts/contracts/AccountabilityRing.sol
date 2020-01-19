@@ -4,7 +4,13 @@ pragma solidity ^0.5.0;
 The AccountabilityRing contract keeps track of the details and state of multiple accountability rings
 */
 
-contract AccountabilityRing {
+/*
+Import OpenZeppelin Pausable contract, to have an emergency switch for freezing all token transfers in the event
+of a large bug.
+*/
+import '@openzeppelin/contracts/lifecycle/Pausable.sol";
+
+contract AccountabilityRing is Pausable {
 
   /*
       Define an public owner variable. Set it to the creator of the contract when it is initialized.
