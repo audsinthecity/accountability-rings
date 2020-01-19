@@ -22,7 +22,7 @@ So how do we achieve our longer term goals with less effort and higher success? 
 * Exactly 8 weeks after the launch of the ring, stakes for any remaining members are returned and the ring pool is divided amongst remaining members less a 2% vig
 
 ## Features
-* User can create new accountability ring with criteria, group size, and stake amount
+* User can create new accountability ring with name, description, proof criteria description, and stake amount
 * Other users can join a ring if there is space and if they submit the correct stake amount until the following 0000 UTC Monday
 * Each ring member can submit proof of compliance
 * Each ring member can vote on the validity of other members' proof
