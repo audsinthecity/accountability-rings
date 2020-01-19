@@ -5,7 +5,7 @@ A decentralized application built with Solidity for the Ethereum Blockchain. It 
 ## Inspiration
 It is hard to form new habits. In the famous [Stanford Marshmallow Experiment](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment), it is shown that children who are able to delay gratification also have better outcomes in life - from higher income to lower BMI to higher educational attainment. However, [willpower is weak](https://www.vox.com/science-and-health/2018/1/15/16863374/willpower-overrated-self-control-psychology) and our brains evolved to [value short term gain over long term threats](https://news.stanford.edu/features/2015/decisions/evolution.html).
 
-So how do we achieve our longer term goals with less effort and higher success? Incentivization may help here - in the form of a monetary stake and in the form of social peer pressure. On average, it takes [66 days](https://jamesclear.com/new-habit) to form a new habit so accountability rings last for 66 days. Rings can be used to ramp up an exercise routine, promote daily food journaling or meditation, build a saving habit, or more.
+So how do we achieve our longer term goals with less effort and higher success? Incentivization may help here - in the form of a monetary stake and in the form of social peer pressure. On average, it takes [66 days](https://jamesclear.com/new-habit) to form a new habit, with a wide variance. For ease of remembering accountability rings last for 8 weeks. Rings can be used to ramp up an exercise routine, promote daily food journaling or meditation, build a saving habit, or more.
 
 ## Rules
 * Anyone can propose a new ring and must detail in their creation listing:
@@ -18,7 +18,7 @@ So how do we achieve our longer term goals with less effort and higher success? 
 * Once a ring is active, each member has until 0000 UTC Fridays to submit their proof
 * Each active ring member must vote on the validity of other members' proof submissions by 0000 UTC Mondays
 * If you you not submit proof on time or your proof is voted to be insufficient (majority rules), your stake is taken away and sent to the ring pool. If you do not submit your votes on time, your stake is taken away and sent to the ring pool
-* At 0000 UTC 66 days after the launch of the ring, stakes for any remaining members are returned and the ring pool is divided amongst remaining members less a 2% vig
+* Exactly 8 weeks after the launch of the ring, stakes for any remaining members are returned and the ring pool is divided amongst remaining members less a 2% vig
 
 ## Features
 * User can create new accountability ring with criteria, group size, and stake amount
