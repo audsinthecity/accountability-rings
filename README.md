@@ -17,9 +17,9 @@ There are forms of this that already exist but some rely on the user to honestly
   * stake required in gwei
 * Rings must be 6 people to ensure that there is always a majority when voting on a member's proof and that each member is not overburdened with proof checking
 * Each ring member, including the proposer, must stake to join the ring
-* Each new proposed ring has until 0000 UTC the following Monday after proposal to reach the number of participants required. If any ring does not reach the required number of members, stakes are returned to all participants and the ring does not launch
-* Once a ring is active, each member has until 0000 UTC Fridays to submit their weekly proof
-* Each active ring member must vote on the validity of other members' proof submissions by 0000 UTC Mondays
+* Each new proposed ring has 3 days to reach the number of participants required. If any ring does not reach the required number of members, stakes are returned to all participants and the ring does not launch
+* Once a ring is active, each member has 5 days to submit their first weekly proof. Note that this means the first week will have a shorter time period - proof can only cover 5 days, not a full week. Future weeks' proofs are still submitted 5 days after the voting deadline, proof can now cover 7 days (7 days of food logging, for example)
+* Each active ring member must vote on the validity of other members' proof submissions within each week's time
 * If you you not submit proof on time or your proof is voted to be insufficient (majority rules), your stake is taken away and sent to the ring pool and your membership becomes deactivated. If you do not submit your votes on time, your stake is taken away and sent to the ring pool and your membership becomes deactivated
 * In the event of a tie (ie 1 member has been deactivated and 2 vote valid and 2 vote invalid), valid is the default outcome
 * Exactly 8 weeks after the launch of the ring, stakes for any remaining members are returned and the ring pool is divided amongst remaining members less a 2% vig
@@ -28,7 +28,7 @@ There are forms of this that already exist but some rely on the user to honestly
 * User can create new accountability ring with name, description, proof criteria description, and stake amount
 * Other users can join a ring if there is space and if they submit the correct stake amount until the following 0000 UTC Monday
 * Each ring member can submit proof of compliance each week before the deadline
-* Each ring member can vote on the validity of other members' proof each week before the deadline
+* Each ring member can vote on the validity of other members' proofs each week before the deadline
 
 ## Demo
 
@@ -109,7 +109,8 @@ Add additional notes about how to deploy this on a live system
 * Include the option to set a different number of members for each ring, as long as it's an even number
 * Include the option to vary the length of time a ring is in force
 * Submit proof and/or vote on proofs more frequently than once per week
-* Add other methods besides a picture for submitting proof, investigage oracles and API integrations?
+* Add other methods besides a picture for submitting proof, investigage oracles and API integrations (FitBit, MyFitnessPal, Mint, etc)?
+* Change submission deadlines to a uniform time (such as 0000 UTC) so there is less potential user confusion around deadline times
 
 ## Authors
 
