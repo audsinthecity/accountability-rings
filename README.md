@@ -14,7 +14,7 @@ There are forms of this that already exist but some rely on the user to honestly
   * name
   * description
   * proof submission criteria in picture format
-  * stake required in gwei
+  * stake required in Ether
 * Rings must be 6 people to ensure that there is always a majority when voting on a member's proof and that each member is not overburdened with proof checking
 * Each ring member, including the proposer, must stake to join the ring
 * Each new proposed ring has 3 days to reach the number of participants required. If any ring does not reach the required number of members, stakes are returned to all participants and the ring does not launch
