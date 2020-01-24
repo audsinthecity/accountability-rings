@@ -8,9 +8,9 @@ The AccountabilityRing contract keeps track of the details and state of multiple
 Import OpenZeppelin Pausable contract, to have an emergency switch for freezing all token transfers in the event
 of a large bug.
 */
-import '@openzeppelin/contracts/lifecycle/Pausable.sol";
+//import '@openzeppelin/contracts/lifecycle/Pausable.sol";
 
-contract AccountabilityRing is Pausable {
+contract AccountabilityRing {//is Pausable {
 
   /*
       Define an public owner variable. Set it to the creator of the contract when it is initialized.
@@ -28,6 +28,17 @@ contract AccountabilityRing is Pausable {
   uint public ringId;
 
   /*
+      Define a User struct.
+      A user has its own wallet address, a mapping of own proofs by week, and a record of valid/not valid votes for other
+      user proof submissions
+  */
+  struct User {
+    address user;
+    mapping (uint => string) proofs; // own proofs uploaded weekly
+    mapping (uint => mapping(address => bool)) votes; // this user's votes on whether other submissions were valid, by week
+  }
+
+  /*
       Define a Ring struct.
       The struct has the following fields: name, description of the ring, details about the criteria for proof,
       total number of partipants (set to 6, but potentially extensible later on), stake needed to join in gwei,
@@ -39,25 +50,14 @@ contract AccountabilityRing is Pausable {
       string description;
       string proofCriteria;
       uint totalParticipants;  // set to 6 in this implementation
-      uint stake; // in gwei
+      uint stake; // in Eth
       uint creationTime;
       uint startTime;
       uint endTime;
       uint currentWeek;
       State state;
-      mapping (User => bool) members;
+      mapping (address => bool) members; // keep track of which users are active in a ring
       uint ringPoolBalance;
-  }
-
-  /*
-      Define a User struct.
-      A user has its own wallet address, a mapping of own proofs by week, and a record of valid/not valid votes for other
-      user proof submissions
-  */
-  struct User {
-    address user;
-    mapping (uint => string) proofs; // own proofs uploaded weekly
-    mapping (uint => mapping(address => bool)) votes; // this user's votes on whether other submissions were valid, by week
   }
 
   /*
@@ -88,10 +88,10 @@ contract AccountabilityRing is Pausable {
 
   /*
       Creates a new ring
-    */
+  */
     function addRing(string memory _name, string memory _description, string memory _proofCriteria,
     uint _stake) 
-        public onlyOwner
+        public payable onlyOwner
         returns (uint)
         {
             require(msg.value >= _stake);  // check to make sure at least the stake amount was sent
@@ -109,33 +109,35 @@ contract AccountabilityRing is Pausable {
             rings[myId].startTime = now+ 3 days; // if enough members, Ring launches in 3 days time
             rings[myId].endTime = now + 1 days + 8 weeks; // Ring ends 8 weeks after the start time
             rings[myId].currentWeek = 0;
-            rings[myId].State = Proposed;
+            rings[myId].state = State.Proposed;
             rings[myId].ringPoolBalance = 0;
 
             ringId += 1;
-            emit LogRingAdded(_name, _description, _url, now, myId);
+            emit LogRingAdded(_name, _description, now, myId);
             return myId;
     }
 
 /*
-    readRing() function takes one parameter, the ringId, and returns information about the ring.
-*/
-    function readRing(uint ringId)
+    readRing() function takes one parameter, the ringNum, and returns information about the ring.
+
+    function readRing(uint ringNum)
         public view
         returns (string memory name, string memory description, string memory proofCriteria, uint stake, uint startTime,
         uint endTime, uint currentWeek, State state)
         {
-            return(rings[ringId].name, rings[ringId].description, rings[ringId].proofCriteria, rings[ringId].stake, rings[ringId].startTime,
-            rings[ringId].endTime, rings[ringId].currentWeek, rings[ringId].state);
+            return(rings[ringNum].name, rings[ringNum].description, rings[ringNum].proofCriteria, rings[ringNum].stake, rings[ringNum].startTime,
+            rings[ringNum].endTime, rings[ringNum].currentWeek, rings[ringNum].state);
         }
-}
+*/
 
 /*
     Joins an existing ring if not already full and within the time parameters
 */
-function joinRing(uint ringId) {
-  require(rings[ringId].state = State.Proposed); // check that ring has been proposed as is not full
-  require(msg.value >= rings[ringId].stake); // check that the stake has been sent
+    function joinRing(uint ringId) public payable {
+        //require(rings[ringId].state = State.Proposed); // check that ring has been proposed as is not full
+        require(msg.value >= rings[ringId].stake); // check that the stake has been sent
 
-  emit LogRingJoined(msg.sender, ringId);
+        emit LogRingJoined(msg.sender, ringId);
+    }
+
 }
