@@ -39,59 +39,43 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* Install [NodeJS](https://nodejs.org/en/)
-* Install [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* Install GanacheCLI
-* Install [Metamask](www.metamask.io) on web browser (Chrome recommended)
+* Install [Node.js v8+ LTS and npm](https://nodejs.org/en/) (comes with Node)
+* Install [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation) or use the following command to do so
+```
+npm install -g truffle
+```
+* Install [Ganache](https://www.trufflesuite.com/ganache), a personal blockchain for Ethereum development you can use to deploy contracts, develop applications, and run tests
+* Install [Metamask](www.metamask.io) extension on web browser (Chrome recommended, there are some issues using Brave and Firefox)
 * Clone project
 
-```
-Give examples
-```
+The directory structure is similar to any Truffle project, consisting of:
+* contracts/: the Solidity source files for our smart contracts
+* migrations/: the migration system to handle smart contract deployments
+* test/: Solidity tests for the smart contracts
+* truffle-config.js: Truffle configuration file
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+Clone repository, as noted in the prerequisites.
+Start a development blockchain by running
 ```
-Give the example
+truffle develop
 ```
-
-And repeat
-
+from the terminal in the project directory.
+From the truffle console, compile and migrate by running
 ```
-until finished
+compile
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
+and
+```
+migrate
+```
 
 ## Running the tests
 
-Launch private blockchain with Ganache
+Still in the truffle console, you can run the pre-written tests by running
 ```
-ganache-cli
-```
-Launch tests
-``` cd test-dir
-truffle test
-```
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+test
 ```
 
 ## Deployment
