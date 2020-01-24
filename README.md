@@ -14,7 +14,7 @@ There are forms of this that already exist but some rely on the user to honestly
   * name
   * description
   * proof submission criteria in picture format
-  * stake required in Ether
+  * stake required in gwei
 * Rings must be 6 people to ensure that there is always a majority when voting on a member's proof and that each member is not overburdened with proof checking
 * Each ring member, including the proposer, must stake to join the ring
 * Each new proposed ring has 3 days to reach the number of participants required. If any ring does not reach the required number of members, stakes are returned to all participants and the ring does not launch
@@ -51,47 +51,26 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+Clone repository.
+Start a development blockchain by running
 ```
-Give the example
+truffle develop
 ```
-
-And repeat
-
+from the terminal in the project directory.
+From the truffle console, compile and migrate by running
 ```
-until finished
+compile
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
+and
+```
+migrate
+```
 
 ## Running the tests
 
-Launch private blockchain with Ganache
+Still in the truffle console, you can run the pre-written tests by running
 ```
-ganache-cli
-```
-Launch tests
-``` cd test-dir
-truffle test
-```
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+test
 ```
 
 ## Deployment
