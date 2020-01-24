@@ -39,19 +39,24 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* Install [NodeJS](https://nodejs.org/en/)
-* Install [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* Install GanacheCLI
-* Install [Metamask](www.metamask.io) on web browser (Chrome recommended)
+* Install [Node.js v8+ LTS and npm](https://nodejs.org/en/) (comes with Node)
+* Install [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation) or use the following command to do so
+```
+npm install -g truffle
+```
+* Install [Ganache](https://www.trufflesuite.com/ganache), a personal blockchain for Ethereum development you can use to deploy contracts, develop applications, and run tests
+* Install [Metamask](www.metamask.io) extension on web browser (Chrome recommended, there are some issues using Brave and Firefox)
 * Clone project
 
-```
-Give examples
-```
+The directory structure is similar to any Truffle project, consisting of:
+* contracts/: the Solidity source files for our smart contracts
+* migrations/: the migration system to handle smart contract deployments
+* test/: Solidity tests for the smart contracts
+* truffle-config.js: Truffle configuration file
 
 ### Installing
 
-Clone repository.
+Clone repository, as noted in the prerequisites.
 Start a development blockchain by running
 ```
 truffle develop
