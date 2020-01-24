@@ -120,6 +120,8 @@ losing the money is even more painful)
 * Use zero knowledge proofs to prove that a submitted proof is valid without releasing actual data which may be sensitive (for instance, that someone reached the goal of saving $100 to an account last month without releasing the account balance,
 banking institution, or account name)
 * UI and design improvements
+* Consider "earning back" your stake as time passes so there is immediate monetary reward for persisting, could be better psychologically
+* Add scientifically proven tips and hacks to help people achieve goals- such as tips to decrease friction for desirable behaviors/increase friction for undesirable behaviors, attach a desirable behavior to an action already part of your routine, etc. Consider material from this [Hidden Brain](https://www.npr.org/2019/12/11/787160734/creatures-of-habit-how-habits-shape-who-we-are-and-who-we-become) episode on habit formation
 
 ## Authors
 
