@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "name": "Exercise Daily",
+    "picture": "images/exercise.jpeg",
+    "description": "30 minutes a day",
+    "proof": "FitBit or Apple Health screenshot",
+    "stake": "0.2 Ether"
+  },
+  {
+    "id": 1,
+    "name": "Save Money",
+    "picture": "images/savemoney.jpeg",
+    "description": "Deposit at least $20 into an account weekly",
+    "proof": "Account balance screenshot",
+    "stake": "0.4 Ether"
+  },
+  {
+    "id": 2,
+    "name": "Nurture Relationships",
+    "picture": "images/relationships.jpeg",
+    "description": "Have at least 1 date a week",
+    "proof": "Photo from date",
+    "stake": "0.25 Ether"
+  },
+  {
+    "id": 3,
+    "name": "Mentor Others",
+    "picture": "images/mentorship.jpeg",
+    "description": "1 mentorship meeting or coffee per week",
+    "proof": "Photo from meeting",
+    "stake": "0.1 Ether"
+  }
+]

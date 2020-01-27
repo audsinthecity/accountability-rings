@@ -20,7 +20,7 @@ contract AccountabilityRing {//is Pausable {
   */
   address payable public owner;
   address payable masterPool;
-  enum State { Proposed, Ready, Failed, Active, Complete }
+  enum State { Proposed, Failed, Active, Complete }
 
   /*
       Create a variable to keep track of the ring ID numbers.
@@ -50,7 +50,7 @@ contract AccountabilityRing {//is Pausable {
       string description;
       string proofCriteria;
       uint totalParticipants;  // set to 6 in this implementation
-      uint stake; // in Eth
+      uint stake; // in gwei
       uint creationTime;
       uint startTime;
       uint endTime;
@@ -106,8 +106,8 @@ contract AccountabilityRing {//is Pausable {
             rings[myId].totalParticipants = 6; // hard-coded 6 participants per Ring currently
             rings[myId].stake = _stake;
             rings[myId].creationTime = now;
-            rings[myId].startTime = now+ 3 days; // if enough members, Ring launches in 3 days time
-            rings[myId].endTime = now + 1 days + 8 weeks; // Ring ends 8 weeks after the start time
+            rings[myId].startTime = now + 3 days; // if enough members, Ring launches in 3 days time
+            rings[myId].endTime = now + 8 weeks; // Ring ends 8 weeks after the creation time
             rings[myId].currentWeek = 0;
             rings[myId].state = State.Proposed;
             rings[myId].ringPoolBalance = 0;
@@ -131,7 +131,9 @@ contract AccountabilityRing {//is Pausable {
 */
 
 /*
-    Joins an existing ring if not already full and within the time parameters
+    Joins an existing ring if not already full and within the time parameters. Make sure proper stake is sent.
+    If ring has now reached number of required participants, start ring and change state to Active.
+    Update start and end times?
 */
     function joinRing(uint ringId) public payable {
         //require(rings[ringId].state = State.Proposed); // check that ring has been proposed as is not full
@@ -139,5 +141,30 @@ contract AccountabilityRing {//is Pausable {
 
         emit LogRingJoined(msg.sender, ringId);
     }
+
+/* 
+    Allows user to upload weekly proof. Check for time to ensure doing it by the deadline.
+
+    function uploadProof()
+
+*/
+
+/*
+    Allows user to vote on other members' proof. Check for time to ensure doing it by the deadline.
+
+    function vote()
+*/
+
+/*
+    How to check every week if proof has been uploaded and votes made? Ethereum alarm clock needed?
+    Anyone who hasn't submitted or voted on time becomes deactivated and their stake is sent to the master pool.
+    In the event of a tie in voting, the default outcome is proof is valid.
+*/
+
+/* 8 weeks after the launch of a ring, the ring is completed. Stakes for any remaining active members are returned
+    and the ring pool is divided amongst the remaining members less a 2% vig. If there are no remaining members,
+    all stakes are sent and retained by the master pool.
+    Can fix the alarm clock issue by requiring that the ring initiator must end the pool.
+*/
 
 }
